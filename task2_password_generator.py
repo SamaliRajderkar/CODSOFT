@@ -12,29 +12,29 @@ def generate_password():
     password_length = int(length_box.get())
     password = ""
 
-    if choice.get() == 1:  # Weak Password (only lowercase letters)
+    if choice.get() == 1:  
         password = ''.join(random.choices(small_alphabets, k=password_length))
-    elif choice.get() == 2:  # Medium Password (lowercase + uppercase letters)
+    elif choice.get() == 2:  
         password = ''.join(random.choices(small_alphabets + capital_alphabets, k=password_length))
-    elif choice.get() == 3:  # Strong Password (lowercase + uppercase + digits + special characters)
+    elif choice.get() == 3: 
         password = ''.join(random.choices(small_alphabets + capital_alphabets + numbers + special_characters, k=password_length))
 
-    password_field.delete(0, END)  # Clear previous content
-    password_field.insert(0, password)  # Insert new password
+    password_field.delete(0, END) 
+    password_field.insert(0, password) 
 
 def copy_password():
     random_password = password_field.get()
     pyperclip.copy(random_password)
 
-# Create the main Tkinter window
+
 root = Tk()
 root.config(bg='gray20')
 root.title('Password Generator')
 
-# Variables
+
 choice = IntVar()
 
-# GUI Elements
+
 font = ('Arial', 13, 'bold')
 
 password_label = Label(root, text='Password Generator', font=('Times new roman', 20, 'bold'), bg='gray20', fg='white')
